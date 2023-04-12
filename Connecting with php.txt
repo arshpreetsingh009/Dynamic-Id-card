@@ -1,0 +1,25 @@
+Html
+<!-- HTML form -->
+<form method="post" action="create_id.php" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Name">
+  <input type="email" name="email" placeholder="Email">
+  <input type="tel" name="phone" placeholder="Phone">
+  <input type="file" name="image">
+  <button type="submit">Download ID</button>
+</form>
+
+php
+// create_id.php
+
+// retrieve the form data
+$name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$image = $_FILES['image'];
+
+// create a new image with GD Library
+$image_width = 500;
+$image_height = 300;
+$background_color = imagecolorallocate($new_image, 255, 255, 255);
+$new_image = imagecreate($image_width, $image_height);
+imagefilledrectangle($new_image, 0, 0, $image_width, $image_height, $background_color
